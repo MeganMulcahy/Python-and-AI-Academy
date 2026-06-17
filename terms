@@ -1,0 +1,59 @@
+### Number Integer: 
+Integer(negative, zero and positive) numbers Example: ... -3, -2, -1, 0, 1, 2, 3 ...
+Float: Decimal number Example ... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...
+Complex Example 1 + j, 2 + 4j
+
+### String
+A collection of one or more characters under a single or double quote. If a string is more than one sentence then we use a triple quote.
+
+### Booleans
+A boolean data type is either a True or False value. T and F should be always uppercase.
+
+### List
+Python list is an ordered collection which allows to store different data type items. Uses [ ].
+
+### Dictionary
+A Python dictionary object is an unordered collection of data in a key value pair format.
+{
+    'first name': 'Megan',
+    'age': 23,
+    'skills': ['Python', 'AI']
+}
+
+### Tuple
+A tuple is an ordered collection of different data types like list but tuples can not be modified once they are created. They are immutable. Uses ( ).
+
+### Set
+A set is a collection of data types similar to list and tuple. Unlike list and tuple, set is not an ordered collection of items. Uses { }.
+
+![alt text](image.png)
+
+### String Formatting
+%s - String (or any object with a string representation, like numbers)
+%d - Integers
+%f - Floating point numbers
+"%.number of digitsf" - Floating point numbers with fixed precision
+
+isnumeric(): Checks if all characters in a string are numbers or number related (just like isdigit(), just accepts more symbols, like ½)
+
+isdigit(): Checks if all characters in a string are numbers (0-9 and some other unicode characters for numbers)
+
+isdecimal(): Checks if all characters in a string are decimal (0-9)
+
+isalpha(): Checks if all string elements are alphabet characters (a-z and A-Z)
+
+isidentifier(): Checks for a valid identifier - it checks if a string is a valid variable name
+
+islower(): Checks if all alphabet characters in the string are lowercase
+
+isupper(): Checks if all alphabet characters in the string are uppercase
+
+join(): Returns a concatenated string
+
+strip(): Removes all given characters starting from the beginning and end of the string
+
+swapcase(): Converts all uppercase characters to lowercase and all lowercase characters to uppercase characters
+
+startswith(): Checks if String Starts with the Specified String
+
+title(): Returns a title cased string
