@@ -12,6 +12,38 @@ A boolean data type is either a True or False value. T and F should be always up
 ### List
 Python list is an ordered collection which allows to store different data type items. Uses [ ].
 
+Indexing: Exclusive End: The end index is never included, No Errors
+Positive Indexing (Left-to-Right)Indices: Start at 0 for the first item.Defaults: start = 0, end = len(lst), step = 1.
+    Examples:lst[1:4] → Items at index 1, 2, and 3.lst[:3] → Items from the beginning up to index 2.lst[::2] → Every second item from start to finish.
+Negative Indexing (Right-to-Left)Indices: The last item is -1, second-to-last is -2. Defaults: Omitted values adapt to match the step direction.
+    Examples:lst[-3:-1] → Extracts from third-to-last up to (but excluding) the last item.lst[:-2] → Extracts everything from the start up to the third-to-last item.lst[::-1] → Reverses the entire list.
+
+Checking an item if it is a member of a list using in operator. See the example below.
+
+To add item to the end of an existing list we use the method append().
+
+We can use insert() method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The insert() methods takes two arguments:index and an item to insert.
+
+The remove method removes a specified item from a list
+
+The pop() method removes the specified index, (or the last item if index is not specified):
+The del keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely
+pop() removes an item and returns its value, while del simply deletes the item from memory without returning anything
+
+The clear() method empties the list:
+
+.copy() copies list creates duplicate
+
+join, or concatenate lists: "+" operator or extend()
+
+The count() method returns the number of times an item appears in a list
+
+The index() method returns the index of an item in the list
+
+The reverse() method reverses the order of a list.
+The sort() method reorders the list items in ascending order and modifies the original list. If an argument of sort() method reverse is equal to true, it will arrange the list in descending order.
+sorted(): returns the ordered list without modifying the original list
+
 ### Dictionary
 A Python dictionary object is an unordered collection of data in a key value pair format.
 {
