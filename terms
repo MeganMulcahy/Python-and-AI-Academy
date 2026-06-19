@@ -55,6 +55,16 @@ A Python dictionary object is an unordered collection of data in a key value pai
 ### Tuple
 A tuple is an ordered collection of different data types like list but tuples can not be modified once they are created. They are immutable. Uses ( ).
 
+tuple(): to create an empty tuple
+count(): to count the number of a specified item in a tuple
+index(): to find the index of a specified item in a tuple
++ operator: to join two or more tuples and to create a new tuple
+
+We can change tuples to lists and lists to tuples. Tuple is immutable if we want to modify a tuple we should change it to a list.
+joining tuples using +, no extend bc cant modify
+
+can del entire tuple but not individual elements
+
 ### Set
 A set is a collection of data types similar to list and tuple. Unlike list and tuple, set is not an ordered collection of items. Uses { }.
 
