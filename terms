@@ -59,14 +59,25 @@ tuple(): to create an empty tuple
 count(): to count the number of a specified item in a tuple
 index(): to find the index of a specified item in a tuple
 + operator: to join two or more tuples and to create a new tuple
+slicing same as lists.
+
+to add an item in wherever, you can + to add at end, or slice in middle where you want it , and + both ends
+mytuple = mytuple[:index] + (new_item,) + mytuple[index:]
+its the (newitem,) comma there becuase it identifies that as a tuple containing 1 item instead of an int
 
 We can change tuples to lists and lists to tuples. Tuple is immutable if we want to modify a tuple we should change it to a list.
 joining tuples using +, no extend bc cant modify
 
 can del entire tuple but not individual elements
 
+# Convert the list to a tuple
+my_tuple = tuple(my_list)
+
 ### Set
 A set is a collection of data types similar to list and tuple. Unlike list and tuple, set is not an ordered collection of items. Uses { }.
+
+
+
 
 ![alt text](image.png)
 
