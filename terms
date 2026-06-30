@@ -43,6 +43,21 @@ A Python dictionary object is an unordered collection of data in a key value pai
     'skills': ['Python', 'AI']
 }
 
+Keys must be unique and immutable. Uses {} with colons separating keys and values.
+
+len(): Returns the total number of key: value pairs in the dictionary.
+get('key'): Accesses a value safely; returns None or a default value instead of throwing a KeyError if the key is missing.
+items(): Returns a view object containing the (key, value) pairs as a list of tuples, useful for looping.
+keys(): Returns a view object of all the keys present in the dictionary.
+values(): Returns a view object of all the values present in the dictionary.
+pop(key): Removes the specified key and returns its corresponding value.
+popitem(): Removes and returns the last inserted (key, value) pair as a tuple.
+copy(): Creates and returns a shallow copy of the dictionary.
+clear(): Removes all elements from the dictionary, leaving it completely empty.
+del: A keyword that completely destroys the dictionary variable from memory.
+in: An operator used to check if a specific key (not value) exists within the dictionary.
+
+
 ### Tuple
 A tuple is an ordered collection of different data types like list but tuples can not be modified once they are created. They are immutable. Uses ( ).
 
