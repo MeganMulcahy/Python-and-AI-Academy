@@ -1,3 +1,5 @@
+#tuples are unchangeable, ordered and allow duplicates
+
 # syntax
 empty_tuple = ()
 # or using the tuple constructor
@@ -37,7 +39,8 @@ tpl3 = tpl + tpl2
 print(tpl3) # ('item1', 'item2', 'item3', 'item4', 'item5', 'item6')
 del tpl
 
-tpl2 += ('item7',) # AttributeError: 'tuple' object has no attribute 'append'
+tpl2 += ('item7',) 
+# tpl2.append('item7') #AttributeError: 'tuple' object has no attribute 'append'
 print(tpl2)
 
 index = len(tpl2) // 2

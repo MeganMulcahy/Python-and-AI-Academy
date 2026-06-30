@@ -19,25 +19,16 @@ Negative Indexing (Right-to-Left)Indices: The last item is -1, second-to-last is
     Examples:lst[-3:-1] → Extracts from third-to-last up to (but excluding) the last item.lst[:-2] → Extracts everything from the start up to the third-to-last item.lst[::-1] → Reverses the entire list.
 
 Checking an item if it is a member of a list using in operator. See the example below.
-
 To add item to the end of an existing list we use the method append().
-
 We can use insert() method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The insert() methods takes two arguments:index and an item to insert.
-
 The remove method removes a specified item from a list
-
 The pop() method removes the specified index, (or the last item if index is not specified):
 The del keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely
 pop() removes an item and returns its value, while del simply deletes the item from memory without returning anything
-
-The clear() method empties the list:
-
+clear() method empties the list:
 .copy() copies list creates duplicate
-
 join, or concatenate lists: "+" operator or extend()
-
 The count() method returns the number of times an item appears in a list
-
 The index() method returns the index of an item in the list
 
 The reverse() method reverses the order of a list.
@@ -76,7 +67,22 @@ my_tuple = tuple(my_list)
 ### Set
 A set is a collection of data types similar to list and tuple. Unlike list and tuple, set is not an ordered collection of items. Uses { }.
 
-
+add(): Adds a single item to a set; duplicates are ignored without throwing an error
+update(): Adds multiple items from an iterable (lists, tuples) into a set
+remove(): Deletes a specific item from a set; throws an error if the item is not found
+discard(): Deletes a specific item from a set; does not throw an error if the item is not found
+pop(): Removes and returns a random item from the set
+clear(): Empties the set entirely
+del: Deletes the set variable completely from memory
+set(): Converts a list, string, or tuple into a set of unique elements
+union(): Joins sets together, returning a new set with all unique elements from both
+intersection(): Returns a new set containing only the items that exist in both sets
+intersection_update(): Modifies the original set to keep only the items found in both sets
+issubset(): Checks if all elements of the current set belong to another set
+issuperset(): Checks if a collection contains all elements of another smaller collection
+difference(): Returns a new set with elements in the first set that are not in the second
+symmetric_difference(): Returns a new set with all items across both sets, minus the items they share in both
+isdisjoint(): Checks if two sets share zero elements, returning True if they do not overlap at all
 
 
 ![alt text](image.png)
@@ -88,25 +94,14 @@ A set is a collection of data types similar to list and tuple. Unlike list and t
 "%.number of digitsf" - Floating point numbers with fixed precision
 
 isnumeric(): Checks if all characters in a string are numbers or number related (just like isdigit(), just accepts more symbols, like ½)
-
 isdigit(): Checks if all characters in a string are numbers (0-9 and some other unicode characters for numbers)
-
 isdecimal(): Checks if all characters in a string are decimal (0-9)
-
 isalpha(): Checks if all string elements are alphabet characters (a-z and A-Z)
-
 isidentifier(): Checks for a valid identifier - it checks if a string is a valid variable name
-
 islower(): Checks if all alphabet characters in the string are lowercase
-
 isupper(): Checks if all alphabet characters in the string are uppercase
-
 join(): Returns a concatenated string
-
 strip(): Removes all given characters starting from the beginning and end of the string
-
 swapcase(): Converts all uppercase characters to lowercase and all lowercase characters to uppercase characters
-
 startswith(): Checks if String Starts with the Specified String
-
 title(): Returns a title cased string
