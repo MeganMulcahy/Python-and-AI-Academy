@@ -124,5 +124,5 @@ title(): Returns a title cased string
 ###For loops
 break: We use break when we want to stop our loop before it is completed.
 continue: We use continue when we want to skip some of the steps in the iteration of the loop.
-range(): is used to return a list of numbers. The range(start, end, step) takes three parameters: starting, ending and increment. By default it starts from 0 and the increment is 1. The range sequence needs at least 1 argument (end). start and end are non-inclusive
+range(): is used to return a list of numbers. The range(start, end, step) takes three parameters: starting, ending and increment. By default it starts from 0 and the increment is 1. The range sequence needs at least 1 argument (end). end are non-inclusive
 pass: can be used on empty for loops to avoid errors
