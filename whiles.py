@@ -26,9 +26,16 @@ useinput = ""
 items = []
 
 while useinput != "quit":
-    useinput = input("Enter something: ")
+    useinput = input("Enter something or type 'quit': ")
     
     if useinput != "quit":
         items.append(useinput)
     
     print(items)
+
+count = 0
+while count < 5:
+    if count == 3:
+        count += 1
+    print(count)
+    count = count + 1

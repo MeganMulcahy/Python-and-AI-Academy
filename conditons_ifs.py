@@ -20,3 +20,7 @@ print(1111 < 11111)
 print(not 41 > 80)
 print(14567 >= 14657 or 1342 <= 1342)
 print(14567 >= 14657 and 1342 <= 1342)
+
+#short hand
+a = 3
+print('A is posative') if a > 0 else (print('A is zero') if a == 0 else print ('A is negative'))
