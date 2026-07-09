@@ -1,13 +1,33 @@
-
 # reverse a string
+s = "hello"
+s = s[::-1]
+print(s)
+
+s = "hello"
+reversed = ""
+for i in s:
+    reversed = i + reversed
+print(reversed)
 
 # check palindrome
+s = "poop"
+print(s[::-1] == s)
+
+#check palindrome ignoring spaces etc.
+def isPalindrome(s):
+        s = "".join(filter(str.isalnum, s.lower()))
+        return s[::-1] == s
+s = "A man, a plan, a canal: Panama"
+print(isPalindrome(s))
 
 # find largest number
 
+
 # swap two variables
 
+
 # count vowels
+
 
 # union of two sets
 

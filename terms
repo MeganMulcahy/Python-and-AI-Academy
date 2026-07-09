@@ -10,6 +10,10 @@ A collection of one or more characters under a single or double quote. If a stri
 A boolean data type is either a True or False value. T and F should be always uppercase.
 
 ### List
+filter(function, iterable): function extracts elements from an iterable (like a list, tuple, or string) based on whether they meet a specific condition
+filter() function returns a lazy generator object, not a finished list or string. To see or use the results, you must always convert it into a concrete data type like a list(), tuple(), or string using "".join()
+lambda used in filter(), map(), or sorted(): lamda is used to make an inline function basically, used in filter to act as the function like add_ten = lambda x: x + 10
+
 Python list is an ordered collection which allows to store different data type items. Uses [ ].
 
 Indexing: Exclusive End: The end index is never included, No Errors

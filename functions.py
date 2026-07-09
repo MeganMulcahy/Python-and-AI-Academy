@@ -116,3 +116,29 @@ def show_args(**kwargs):
 
 show_args(fruit="apple", color="red")
 
+
+text = "Code 2026!"
+digits = list(filter(str.isdigit, text))   
+print(digits)
+
+def is_even(num):
+    return num % 2 == 0
+
+numbers = [1, 2, 3, 4, 5, 6]
+
+# Extract even numbers
+even_numbers = list(filter(is_even, numbers)) 
+print(even_numbers)
+
+
+ages = [14, 18, 22, 30, 16]
+# lamda is used to make an inline function basically, used in filter to act as the function like add_ten = lambda x: x + 10
+# lambda used in filter(), map(), or sorted()
+adults = list(filter(lambda x: x >= 18, ages))
+
+
+# The filter way
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+
+# The list comprehension way (performs the same action)
+evens = [x for x in numbers if x % 2 == 0]
