@@ -3,6 +3,7 @@ s = "hello"
 s = s[::-1]
 print(s)
 
+# reverse a string list comprehension
 s = "hello"
 reversed = ""
 for i in s:
@@ -21,35 +22,58 @@ s = "A man, a plan, a canal: Panama"
 print(isPalindrome(s))
 
 # find largest number
-
-
-# swap two variables
-
+print(max(1,2,3,4,5))
 
 # count vowels
-
+s = "Hello"
+vowels = "aeiou"
+count = sum(1 for char in s.lower() if char in vowels)
+print(count)
 
 # union of two sets
+set1 = {1,2,3}
+set2 = {3,4,5}
+result = set1.union(set2)
+print(result)
 
 # intersection of two sets
+result = set1.intersection(set2)
+print(result)
+
+# intersection of two lists
+list1= [1,2,3]
+list2 = [3,4,5]
+intersection = list(set(list1) & set(list2))
+print(intersection)
 
 # difference of two sets
+result = set1.difference(set2)
+print(result)
 
-# symmetric difference
-
-# check subset
-
-# check superset
-
-# check disjoint sets
+# difference of lists
+difference = list(set(list1) - set(list2))
+print(difference)
 
 # add element to set
+set1.add(5)
 
 # remove element from set
+set1.remove(2)
 
 # factorial of a number
+def factorial(n):
+    return 1 if n == 0 else n + factorial(n-1)
+n = 5
+print(factorial(n))
 
 # fibinacci series
+def fibonacci(n):
+    a,b=0,1
+    for _ in range(n):
+        print(a, end = "")
+        a,b=b,a+b
+    print()
+fibonacci(7)
 
 # prime number?
 
