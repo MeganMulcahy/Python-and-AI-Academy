@@ -52,6 +52,21 @@
 | Q48 | What is a generator? | A generator is a function that produces values one at a time instead of all at once. |
 | Q49 | What is a virtual environment? | A virtual environment is an isolated workspace used to manage project dependencies. |
 
+### Python OOP Interview Questions
+
+| # | Question | Answer |
+|---|----------|--------|
+| Q1 | What is OOP? | OOP (Object-Oriented Programming) is a programming style that uses objects and classes. |
+| Q2 | What are the 4 Pillars of OOP? | The 4 pillars of OOP are Encapsulation, Inheritance, Polymorphism, and Abstraction. |
+| Q3 | What is a Class? | A class is a blueprint for creating objects. |
+| Q4 | What is an Object? | An object is an instance of a class. |
+| Q5 | Difference Between Class & Object? | A class is a blueprint that defines attributes and methods; an object is an instance of a class that uses those attributes and methods. |
+| Q6 | What is Inheritance? | One class inherits properties and methods from another class. |
+| Q7 | What is Encapsulation? | Combining data (attributes) and methods into one unit (class), and restricting direct access to some data. |
+| Q8 | What is Polymorphism? | The same method behaves differently for different objects. |
+| Q9 | What is Abstraction? | Hiding implementation details and showing only essential features. |
+| Q10 | What is the `self` Keyword? | `self` refers to the current object of the class. |
+
 ### Chroma
 
 **What it is:** Chroma (ChromaDB) is an open-source, AI-native **vector database**. It stores text as embeddings (numeric vectors that capture meaning) alongside the original documents and metadata, and lets you query by semantic similarity instead of exact keyword matches.
