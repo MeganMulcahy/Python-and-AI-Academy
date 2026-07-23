@@ -138,7 +138,10 @@ my_tuple = tuple(my_list)
 - `zip(*iterables)`: combines multiple iterables element-wise into an iterator of tuples, stopping as soon as the shortest iterable is exhausted
 - `any(iterable)`: returns True if at least one element in the iterable is truthy (returns False on an empty iterable)
 - `all(iterable)`: returns True if every element in the iterable is truthy (returns True on an empty iterable)
-
+- A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
+    - you use decorators for code reusability. write the wrapper logic once and apply it to ten functions using a single line.
+    - checks if users logged in before letting the see a profile page @login_required
+    - can be used to cache results easily and it just kind of adds another funtion to whats already going to run @lru_cache
 ### Modules
 - OS Module: performing operating systme tasks, creating, changing working dir, removing a dir/folder, fetching contents, etc.
 - Sys Module: functions and variables to manipluate diff parts of Python runtime env. Function sys.argv returns a list of command line args passed into a Python script. Item at index 0 is always the name of the script, item 1 is the arg passed in from command line.
