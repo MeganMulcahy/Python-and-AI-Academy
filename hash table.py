@@ -1,6 +1,11 @@
-# test_hashtable.py
+# hash table
+class HashTable:
+    def __init__(self, capacity): 
+        self.values = capacity * [None]
+    def __len__(self):
+        return len(self.values)
 
-from hashtable import HashTable
+# tests hashtable
 
 def test_should_create_hashtable():
     assert HashTable(capacity = 100) is not None
