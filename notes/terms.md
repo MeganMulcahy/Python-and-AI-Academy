@@ -142,6 +142,7 @@ my_tuple = tuple(my_list)
     - you use decorators for code reusability. write the wrapper logic once and apply it to ten functions using a single line.
     - checks if users logged in before letting the see a profile page @login_required
     - can be used to cache results easily and it just kind of adds another funtion to whats already going to run @lru_cache
+- `map()`: takes a function and an iterable as parameters
 ### Modules
 - OS Module: performing operating systme tasks, creating, changing working dir, removing a dir/folder, fetching contents, etc.
 - Sys Module: functions and variables to manipluate diff parts of Python runtime env. Function sys.argv returns a list of command line args passed into a Python script. Item at index 0 is always the name of the script, item 1 is the arg passed in from command line.
@@ -157,3 +158,8 @@ my_tuple = tuple(my_list)
     - `choices(population, k=n)` returns a list of n random items, with replacement (duplicates allowed). 
     - `sample(population, k=n)` returns a list of n unique random items, without replacement (no duplicates).
 
+### Hash Table
+- A **hash** is a mathematical process that takes an input of any size and converts it into a smaller, fixed-size sequence of bytes (called a hash value or hash code). In Python, this is used as a fast indexing system. Instead of searching through data line-by-line, Python converts a key into a hash number to find its exact location in memory instantly.
+    -  Python dictionaries use this hashing process under the hood to store and look up key-value pairs instantly. Every key must have a value, but they can be any arbitrary data type like numbers or words.
+    - You can only hash data types that can never change (immutable). This means strings, numbers, and tuples are allowed, but lists, sets, and dictionaries are forbidden.
+    - Hashing is used to secure passwords. While Python uses a global `hash()` function for dictionaries and sets, it includes a built-in `hashlib` module for these cryptographic security functions.

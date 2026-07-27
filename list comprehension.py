@@ -102,3 +102,4 @@ slope = solve_linear(1, 2, 4, 14, mode="slope")
 intercept = solve_linear(1, 2, 4, 14, mode="intercept")
 print(f"Slope: {slope}")  # Output: Slope: 4.0
 print(f"Y-Intercept: {intercept}")  # Output: Y-Intercept: -2.0
+

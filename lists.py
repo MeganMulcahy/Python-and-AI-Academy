@@ -97,4 +97,3 @@ reduxindex = full_stack.index('Redux') # 4
 full_stack.insert(reduxindex + 1, 'Python')
 full_stack[reduxindex+1:reduxindex+1] = ['Python', 'SQL', 'MongoDB'] #inserts inebtween in thisempty spot. second numver +x is how many after it replaces in that place
 print(full_stack)
-
