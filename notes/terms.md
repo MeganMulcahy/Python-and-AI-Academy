@@ -72,6 +72,17 @@
 - `del dict[key]`: keyword that completely destroys the specified key (or the whole dictionary variable from memory if used without a key).
 - `key in dict`: "in" operator (not a callable) used to check if a specific key (not value) exists within the dictionary.
 
+### Hash Table (dict in Python)
+- A **hash** is a mathematical process that takes an input of any size and converts it into a smaller, fixed-size sequence of bytes (called a hash value or hash code). In Python, this is used as a fast indexing system. Instead of searching through data line-by-line, Python converts a key into a hash number to find its exact location in memory instantly.
+    - Python dictionaries use this hashing process under the hood to store and look up key-value pairs instantly. Every key must have a value, but they can be any arbitrary data type like numbers or words.
+    - You can only hash data types that can never change (immutable). This means strings, numbers, and tuples are allowed, but lists, sets, and dictionaries are forbidden.
+    - Hashing is used to secure passwords. While Python uses a global `hash()` function for dictionaries and sets, it includes a built-in `hashlib` module for these cryptographic security functions.
+    - **Collision Handling:**
+        - Chaining: Store multiple key-value pairs in the same bucket, usually as a list or linked list.
+        - Open Addressing / Rehashing: If a collision occurs, find another empty bucket according to some probing method (linear probing, quadratic probing, etc.).
+    - Python dictionaries (dict) are implemented as hash maps.
+    - You can create a custom hash map (like your HashTable class) to understand how hash maps work internally.
+
 ### Tuple
 - A tuple is an ordered collection of different data types like list but tuples can not be modified once they are created. They are immutable. Uses `( )`.
 
@@ -130,19 +141,26 @@ my_tuple = tuple(my_list)
 - `range(start, stop, step)`: returns a sequence of numbers. Takes three parameters: starting, ending and increment. By default it starts from 0 and the increment is 1. The range sequence needs at least 1 argument (stop). stop is non-inclusive.
 - `pass`: keyword (not a callable, no parentheses/args) used on empty for loops (or other empty blocks) to avoid errors
 
-### Built-in Functions (work with any iterable — list, tuple, string, set, dict — not tied to one data type)
+### Built-in Functions & Higher Order Functions (work with any iterable — list, tuple, string, set, dict — not tied to one data type)
 - `lambda args: expr`: keyword syntax (not a callable) that creates an inline anonymous function, e.g. used inside `filter()`, `map()`, or `sorted()`. Example: `add_ten = lambda x: x + 10`
-- `filter(function, iterable)`: extracts elements from an iterable based on whether they meet a specific condition. Returns a lazy generator object, not a finished list or string — convert it into a concrete data type using `list()`, `tuple()`, or `"".join()`
-- `map(function, iterable)`: applies a function to every item in an iterable, returning a lazy iterator of the results (like `filter()`, convert it with `list()`, `tuple()`, etc. to see the values)
 - `enumerate(iterable, start=0)`: returns an iterator of (index, item) pairs, useful for looping when you need both the index and the value
 - `zip(*iterables)`: combines multiple iterables element-wise into an iterator of tuples, stopping as soon as the shortest iterable is exhausted
 - `any(iterable)`: returns True if at least one element in the iterable is truthy (returns False on an empty iterable)
 - `all(iterable)`: returns True if every element in the iterable is truthy (returns True on an empty iterable)
-- A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
+- A `higher order function` is a function that accepts or returns another function. Built in higher order functions (`map()`, `filter()`, `reduce()`)
+- `Decorator`: A design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
     - you use decorators for code reusability. write the wrapper logic once and apply it to ten functions using a single line.
-    - checks if users logged in before letting the see a profile page @login_required
-    - can be used to cache results easily and it just kind of adds another funtion to whats already going to run @lru_cache
-- `map()`: takes a function and an iterable as parameters
+    - checks if users logged in before letting the see a profile page `@login_required`
+    - can be used to cache results easily and it just kind of adds another funtion to whats already going to run `@lru_cache`
+- `Closures`: Python allows a nested function to access the outer scope of the enclosing function. This is is known as a Closure. Let us have a look at how closures work in Python. In Python, closure is created by nesting a function inside another encapsulating function and then returning the inner function. See the example below.
+- `filter(function, iterable)`: extracts elements from an iterable based on whether they meet a specific condition. Returns a lazy generator object, not a finished list or string — convert it into a concrete data type using `list()`, `tuple()`, or `"".join()`
+    - makes a boolean for each item in iterable and only returns the true
+- `map(function, iterable)`: applies a function to every item in an iterable, returning a lazy iterator of the results (like `filter()`, convert it with `list()`, `tuple()`, etc. to see the values)
+    - Why it matters: It computes values on demand instead of loading everything into memory at once.
+    - Example: If you have 10 million items, map() consumes almost zero memory upfront, whereas a list comprehension will instantly allocate memory for all 10 million elements.
+- `reduce(function, iterable)`: Function is defined in the functools module and we should import it from this module. Like `map()` and `filter()` it takes two parameters, a function and an iterable. However, it does not return another iterable, instead it returns a single value.
+
+
 ### Modules
 - OS Module: performing operating systme tasks, creating, changing working dir, removing a dir/folder, fetching contents, etc.
 - Sys Module: functions and variables to manipluate diff parts of Python runtime env. Function sys.argv returns a list of command line args passed into a Python script. Item at index 0 is always the name of the script, item 1 is the arg passed in from command line.
@@ -157,15 +175,3 @@ my_tuple = tuple(my_list)
     - `choice(seq)` returns a single random item from a sequence. 
     - `choices(population, k=n)` returns a list of n random items, with replacement (duplicates allowed). 
     - `sample(population, k=n)` returns a list of n unique random items, without replacement (no duplicates).
-
-### Hash Table / Map
-- A **hash** is a mathematical process that takes an input of any size and converts it into a smaller, fixed-size sequence of bytes (called a hash value or hash code). In Python, this is used as a fast indexing system. Instead of searching through data line-by-line, Python converts a key into a hash number to find its exact location in memory instantly.
-    - Python dictionaries use this hashing process under the hood to store and look up key-value pairs instantly. Every key must have a value, but they can be any arbitrary data type like numbers or words.
-    - You can only hash data types that can never change (immutable). This means strings, numbers, and tuples are allowed, but lists, sets, and dictionaries are forbidden.
-    - Hashing is used to secure passwords. While Python uses a global `hash()` function for dictionaries and sets, it includes a built-in `hashlib` module for these cryptographic security functions.
-    - **Collision Handling:**
-        - Chaining: Store multiple key-value pairs in the same bucket, usually as a list or linked list.
-        - Open Addressing / Rehashing: If a collision occurs, find another empty bucket according to some probing method (linear probing, quadratic probing, etc.).
-    - Python dictionaries (dict) are implemented as hash maps.
-    - You can create a custom hash map (like your HashTable class) to understand how hash maps work internally.
-
