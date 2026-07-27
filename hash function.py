@@ -1,6 +1,6 @@
 # hash function built from scratch. python has built in hash function through the dict. data type
 
-# iterate over text and turn each character into the coresponding unicode using ord() and sum to create the merge of all of them together
+''' iterate over text and turn each character into the coresponding unicode using ord() and sum to create the merge of all of them together
 def hash_function(text):
     return sum(ord(character) for character in text)
 
@@ -41,6 +41,8 @@ print(hash_function("This is very long") * 1_000_000)
 print(hash_function("a"), hash_function("b"), hash_function("c"))
 
 # Solution well remove the left apostrophe if it exists
+'''
+
 def hash_function(key):
     return sum(
         index * ord(character)

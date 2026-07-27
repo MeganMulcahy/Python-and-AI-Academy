@@ -158,8 +158,14 @@ my_tuple = tuple(my_list)
     - `choices(population, k=n)` returns a list of n random items, with replacement (duplicates allowed). 
     - `sample(population, k=n)` returns a list of n unique random items, without replacement (no duplicates).
 
-### Hash Table
+### Hash Table / Map
 - A **hash** is a mathematical process that takes an input of any size and converts it into a smaller, fixed-size sequence of bytes (called a hash value or hash code). In Python, this is used as a fast indexing system. Instead of searching through data line-by-line, Python converts a key into a hash number to find its exact location in memory instantly.
-    -  Python dictionaries use this hashing process under the hood to store and look up key-value pairs instantly. Every key must have a value, but they can be any arbitrary data type like numbers or words.
+    - Python dictionaries use this hashing process under the hood to store and look up key-value pairs instantly. Every key must have a value, but they can be any arbitrary data type like numbers or words.
     - You can only hash data types that can never change (immutable). This means strings, numbers, and tuples are allowed, but lists, sets, and dictionaries are forbidden.
     - Hashing is used to secure passwords. While Python uses a global `hash()` function for dictionaries and sets, it includes a built-in `hashlib` module for these cryptographic security functions.
+    - **Collision Handling:**
+        - Chaining: Store multiple key-value pairs in the same bucket, usually as a list or linked list.
+        - Open Addressing / Rehashing: If a collision occurs, find another empty bucket according to some probing method (linear probing, quadratic probing, etc.).
+    - Python dictionaries (dict) are implemented as hash maps.
+    - You can create a custom hash map (like your HashTable class) to understand how hash maps work internally.
+
