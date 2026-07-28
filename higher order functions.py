@@ -211,3 +211,25 @@ def count_country_letters(countries_list) -> dict:
             }
     print(letters)
 count_country_letters(countries)
+
+from datafiles.countries_data import countries
+
+def get_frist_ten(countries_list) -> list:
+    return [country['name'] for country in countries_list[:3]]
+print(get_frist_ten(countries))
+
+def sort(countries_list):
+    by_name = sorted(countries_list, key = lambda x: x['name'])
+    by_capital = sorted(countries_list, key = lambda x: x['capital'])
+    by_pop = sorted(countries_list, key = lambda x: x['population'])
+    print([country['name'] for country in by_name[:3]])
+    print([country['name'] for country in by_capital[:3]])
+    print([country['name'] for country in by_pop[:3]])
+
+    lang_count = {}
+    for country in countries_list:
+        for lang in country['languages']:
+            lang_count[lang] = lang_count.get(lang, 0) + 1
+    print(sorted(lang_count, key = lambda list: list[1])[:3])
+    # lambda list: list is key, value and we want the value
+sort(countries)

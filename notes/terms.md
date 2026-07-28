@@ -147,7 +147,7 @@ my_tuple = tuple(my_list)
 - `zip(*iterables)`: combines multiple iterables element-wise into an iterator of tuples, stopping as soon as the shortest iterable is exhausted
 - `any(iterable)`: returns True if at least one element in the iterable is truthy (returns False on an empty iterable)
 - `all(iterable)`: returns True if every element in the iterable is truthy (returns True on an empty iterable)
-- A `higher order function` is a function that accepts or returns another function. Built in higher order functions (`map()`, `filter()`, `reduce()`)
+- A `higher order function` is a function that accepts another function or returns another function. Built in higher order functions (`map()`, `filter()`, `reduce()`, `sorted()`)
 - `Decorator`: A design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
     - you use decorators for code reusability. write the wrapper logic once and apply it to ten functions using a single line.
     - checks if users logged in before letting the see a profile page `@login_required`
@@ -159,6 +159,7 @@ my_tuple = tuple(my_list)
     - Why it matters: It computes values on demand instead of loading everything into memory at once.
     - Example: If you have 10 million items, map() consumes almost zero memory upfront, whereas a list comprehension will instantly allocate memory for all 10 million elements.
 - `reduce(function, iterable)`: Function is defined in the functools module and we should import it from this module. Like `map()` and `filter()` it takes two parameters, a function and an iterable. However, it does not return another iterable, instead it returns a single value.
+- `sorted(interable, key)`: key uses lambda function
 
 
 ### Modules
