@@ -176,3 +176,8 @@ my_tuple = tuple(my_list)
     - `choice(seq)` returns a single random item from a sequence. 
     - `choices(population, k=n)` returns a list of n random items, with replacement (duplicates allowed). 
     - `sample(population, k=n)` returns a list of n unique random items, without replacement (no duplicates).
+
+### Packing and Unpacking Arguments in Python
+- * for tuples
+- ** for dictionaries
+- Let us take as an example below. It takes only arguments but we have list. We can unpack the list and changes to argument.
