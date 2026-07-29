@@ -147,12 +147,12 @@ my_tuple = tuple(my_list)
 - `zip(*iterables)`: combines multiple iterables element-wise into an iterator of tuples, stopping as soon as the shortest iterable is exhausted
 - `any(iterable)`: returns True if at least one element in the iterable is truthy (returns False on an empty iterable)
 - `all(iterable)`: returns True if every element in the iterable is truthy (returns True on an empty iterable)
-- A `higher order function` is a function that accepts another function or returns another function. Built in higher order functions (`map()`, `filter()`, `reduce()`, `sorted()`)
-- `Decorator`: A design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
+- A higher order function is a function that accepts another function or returns another function. Built in higher order functions (`map()`, `filter()`, `reduce()`, `sorted()`)
+- Decorator: A design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
     - you use decorators for code reusability. write the wrapper logic once and apply it to ten functions using a single line.
     - checks if users logged in before letting the see a profile page `@login_required`
     - can be used to cache results easily and it just kind of adds another funtion to whats already going to run `@lru_cache`
-- `Closures`: Python allows a nested function to access the outer scope of the enclosing function. This is is known as a Closure. Let us have a look at how closures work in Python. In Python, closure is created by nesting a function inside another encapsulating function and then returning the inner function. See the example below.
+- Closures: Python allows a nested function to access the outer scope of the enclosing function. This is is known as a Closure. Let us have a look at how closures work in Python. In Python, closure is created by nesting a function inside another encapsulating function and then returning the inner function. See the example below.
 - `filter(function, iterable)`: extracts elements from an iterable based on whether they meet a specific condition. Returns a lazy generator object, not a finished list or string — convert it into a concrete data type using `list()`, `tuple()`, or `"".join()`
     - makes a boolean for each item in iterable and only returns the true
 - `map(function, iterable)`: applies a function to every item in an iterable, returning a lazy iterator of the results (like `filter()`, convert it with `list()`, `tuple()`, etc. to see the values)
@@ -181,3 +181,44 @@ my_tuple = tuple(my_list)
 - * for tuples
 - ** for dictionaries
 - Let us take as an example below. It takes only arguments but we have list. We can unpack the list and changes to argument.
+
+### ReGex Expressions
+- A regular expression or RegEx is a special text string that helps to find patterns in data. A RegEx can be used to check if some pattern exists in a different data type. 
+    - `re.match()`: searches only in the beginning of the first line of the string and returns matched objects if found, else returns None.
+    - `re.search`: Returns a match object if there is one anywhere in the string, including multiline strings.
+    - `re.findall`: l: Returns a list containing all matches
+    - `re.split`: Takes a string, splits it at the match points, returns a list
+    - `re.sub`: Replaces one or many matches within a string
+- Writing RegEx Patterns
+    - To declare a string variable we use a single or double quote. To declare RegEx variable r''. The following pattern only identifies apple with lowercase, to make it case insensitive either we should rewrite our pattern or we should add a flag.
+    - Why the r Prefix Matters: 
+        - Raw strings: The r tells Python to treat backslashes like normal text instead of special escape codes. For simple text like 'apple', nothing changes. However, when you use common regex symbols like \d, \w, or \b, leaving out the r will break your code or cause unexpected behavior.
+        - No backslashes here: Your pattern 'apple' does not use backslashes (like \n or \t), so Python reads it the exact same way with or without the r.
+    - []: A set of characters
+        - [a-c] means, a or b or c
+        - [a-z] means, any letter from a to z
+        - [A-Z] means, any character from A to Z
+        - [0-3] means, 0 or 1 or 2 or 3
+        - [0-9] means any number from 0 to 9
+        - [A-Za-z0-9] any single character, that is a to z, A to Z or 0 to 9
+    - \: uses to escape special characters
+        - \d means: match where the string contains digits (numbers from 0-9)
+        - \D means: match where the string does not contain digits
+    - . : any character except new line character(\n)
+    - ^: starts with
+        - r'^substring' eg r'^love', a sentence that starts with a word love
+        - r'[^abc] means not a, not b, not c.
+    - $: ends with
+        - r'substring$' eg r'love$', sentence that ends with a word love
+    - *: zero or more times
+        - r'[a]*' means a optional or it can occur many times.
+    - +: one or more times
+        - r'[a]+' means at least once (or more)
+    - ?: zero or one time
+        - r'[a]?' means zero times or once
+    - {3}: Exactly 3 characters
+    - {3,}: At least 3 characters
+    - {3,8}: 3 to 8 characters
+    - |: Either or
+        - r'apple|banana' means either apple or a banana
+    - (): Capture and group

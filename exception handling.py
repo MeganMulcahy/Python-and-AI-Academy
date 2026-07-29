@@ -101,12 +101,17 @@ print(fruits_and_veges)
 
 names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']
 *nordic_countries, es, ru = names
+print(es)
+print(ru)
+print(nordic_countries)
+
 es = [country for country in names if country == 'Estonia']
 ru = [c for c in names if c == 'Russia']
 nordic_countries = [c for c in names if c not in ('Estonia', 'Russia')]
 print(es)
 print(ru)
 print(nordic_countries)
+
 es = list(filter(lambda x: x == 'Estonia', names))
 ru = list(filter(lambda c: c == 'Russia', names))
 nordic_countries = list(filter(lambda c: c not in ('Estonia', 'Russia'), names))
