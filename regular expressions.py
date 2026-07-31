@@ -195,3 +195,24 @@ def clean_text(txt):
     return matches
 print(clean_text(sentence))
 print(most_frequent_words(clean_text(sentence)))
+
+s = "Hello the the world!"
+email = "test@example.com"
+url   = "https://example.com/path"
+num_str = "1000000"
+print(bool(re.match(r'Hello', s, re.I))) # match = check if its starts with "Hello"
+print(bool(re.fullmatch(r'\d+', s)))
+print(bool(re.search('[aeiouAEIOU]', s))) # searches for any of the stuff in the brackets which is like a set of numbers/letters
+hex_s = '#90FaFd'
+print(bool(re.fullmatch('#([0-9a-f]{6})', hex_s, re.I))) # checks if starts with #, then 6 of any nums or letters upper or lower
+ipv4_s = '12.000.80.231'
+print(bool(re.fullmatch(r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}',ipv4_s))) # checks for digits 1-3 nums, then a period, then 3 nums
+py_s = 'pygame.py'
+print(bool(re.search(r'\.py$', py_s))) # '\. matches for a literal period instead of any char then ends with py using the '$'
+print(bool(py_s.endswith('.py')))
+double_s = "helo this is the bus the"
+print(bool(re.search(r'\b(\w+)\b\s+\b\1\b', double_s)))
+# \b matches word boundaries
+# (\w+) captures the first word
+# \s+ matches the spaces between them
+# \1 matches the exact same word captured in group 1

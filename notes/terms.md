@@ -202,8 +202,14 @@ my_tuple = tuple(my_list)
         - [0-9] means any number from 0 to 9
         - [A-Za-z0-9] any single character, that is a to z, A to Z or 0 to 9
     - \: uses to escape special characters
-        - \d means: match where the string contains digits (numbers from 0-9)
-        - \D means: match where the string does not contain digits
+        - \w: Matches any word character (letters a-z, A-Z, numbers 0-9, and underscore _).
+        - \W: Matches any non-word character (the opposite of \w, like spaces, symbols, or punctuation).
+        - \b: Matches a word boundary (an invisible anchor point between a word character and a non-word character or string edge).
+        - \B: Matches a non-word boundary (any spot where \b does not fit).
+        - \d: Matches any digit (numbers from 0 to 9).
+        - \D: Matches any non-digit character.
+        - \s: Matches any whitespace character (spaces, tabs, and line breaks).
+        - \S: Matches any non-whitespace character.
     - . : any character except new line character(\n)
     - ^: starts with
         - r'^substring' eg r'^love', a sentence that starts with a word love
