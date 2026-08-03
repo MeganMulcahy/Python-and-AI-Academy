@@ -200,15 +200,15 @@ s = "Hello the the world!"
 email = "test@example.com"
 url   = "https://example.com/path"
 num_str = "1000000"
-print(bool(re.match(r'Hello', s, re.I))) # match = check if its starts with "Hello"
+print((re.match(r'Hello', s, re.I)).group()) # match = check if its starts with "Hello"
 print(bool(re.fullmatch(r'\d+', s)))
 print(bool(re.search('[aeiouAEIOU]', s))) # searches for any of the stuff in the brackets which is like a set of numbers/letters
 hex_s = '#90FaFd'
-print(bool(re.fullmatch('#([0-9a-f]{6})', hex_s, re.I))) # checks if starts with #, then 6 of any nums or letters upper or lower
+print((re.fullmatch('#([0-9a-f]{6})', hex_s, re.I)).group()) # checks if starts with #, then 6 of any nums or letters upper or lower
 ipv4_s = '12.000.80.231'
-print(bool(re.fullmatch(r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}',ipv4_s))) # checks for digits 1-3 nums, then a period, then 3 nums
+print((re.fullmatch(r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}',ipv4_s)).group()) # checks for digits 1-3 nums, then a period, then 3 nums
 py_s = 'pygame.py'
-print(bool(re.search(r'\.py$', py_s))) # '\. matches for a literal period instead of any char then ends with py using the '$'
+print((re.search(r'\.py$', py_s)).group()) # '\. matches for a literal period instead of any char then ends with py using the '$'
 print(bool(py_s.endswith('.py')))
 double_s = "helo this is the bus the"
 print(bool(re.search(r'\b(\w+)\b\s+\b\1\b', double_s)))
@@ -216,3 +216,25 @@ print(bool(re.search(r'\b(\w+)\b\s+\b\1\b', double_s)))
 # (\w+) captures the first word
 # \s+ matches the spaces between them
 # \1 matches the exact same word captured in group 1
+s = "()"
+print((re.fullmatch(r'^[^(]*(\([^()]*\)[^(]*)*$', s)).group())
+# ^ – Asserts the start of the string.
+# [^(]* – Matches any initial characters that are not an opening parenthesis.
+# ( – Starts a matching group for each parenthesis pair.
+# \( – Matches a literal opening parenthesis.
+# [^()]* – Matches the text inside the parentheses (strictly prohibits nested ( or )).
+# \) – Matches a literal closing parenthesis.
+# [^(]* – Matches any characters following the closing parenthesis up until the next opening one.
+# )* – Closes the group, allowing zero or more pairs of these non-nested, balanced parentheses.
+# $ – Asserts the end of the string.
+s = "mgmulcahy@crimson.ua.edu"
+print((re.fullmatch(r'[\w.+-]+@(?:[\w-]+\.)+[a-zA-Z]{2,}', s)).group())
+# \w – Matches any alphanumeric character (letters a-z, A-Z, digits 0-9) and the underscore (_).
+# . – Matches a literal period. Inside square brackets, the period loses its wildcard meaning ("any character") and represents just a dot.
+# + – Matches a literal plus sign.
+# - – Matches a literal hyphen.
+# (?:[\w-]+\.)+ is a non-capturing group that matches a domain segment followed by a dot (e.g., crimson. and ua.), and requires it to happen at least once.
+s = "aa"
+print(bool(re.search(r'[aeiou]{2,}', s, re.I)))
+x = "-123"
+print(re.fullmatch(r'[+-]?\d+',x).group())
