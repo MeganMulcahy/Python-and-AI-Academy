@@ -105,3 +105,155 @@ with open('./datafiles/person.csv') as f:
 # print(excel_book.nsheets)
 # print(excel_book.sheet_names)
 
+def count_lines_and_words(filepath):
+    try:
+        with open(filepath, 'r') as f:
+            lines = f.readlines()
+            linecount = len(lines)
+
+            words = "".join(lines).split()
+            wordcount = len(words)
+
+            return linecount, wordcount
+    except FileNotFoundError:
+        print(f"Error: The file at {filepath} was not found.")
+        return 0,0
+
+print(f"Number of lines: {count_lines_and_words('./datafiles/example.txt')[0]}, number of words: {count_lines_and_words('./datafiles/example.txt')[1]}")
+
+# Unpack the returned tuple into 'lines' and 'words' variables
+lines, words = count_lines_and_words('./datafiles/example.txt')
+
+# Print the formatted text directly
+print(f"Number of lines: {lines}, number of words: {words}")
+
+
+def most_spoken_languages(filename, topn):
+    if not os.path.exists(filename):
+        return(f"Error: The file '{filename}' was not found.")
+    
+    with open(filename, 'r') as f:
+        data = json.load(f)
+
+    if not data:
+        return(f"Error: The JSON file is empty.")
+    
+    languagecount = dict()
+    for country in data:
+        for language in country.get('languages', []):
+            languagecount[language] = languagecount.get(language, 0) + 1
+
+    sortedlanguages = sorted(languagecount.items(), key = lambda x: (x[1]), reverse = True)
+
+    return [(count, language) for language, count in sortedlanguages[:topn]]
+
+print(most_spoken_languages('./datafiles/country_data.json', 3))
+
+
+def most_populated_country(filename, topn):
+    if not os.path.exists(filename):
+        return(f"Error: The file '{filename}' was not found.")
+    
+    with open(filename, 'r') as f:
+        data = json.load(f)
+
+    if not data:
+        return(f"Error: The JSON file is empty.")
+    
+    popcount = dict()
+    for country in data:
+        popcount[country.get('name')] = country.get('population', 0)
+
+    sortedpopulation = sorted(popcount.items(), key = lambda x: (x[1]), reverse = True)
+    # returns dict, (country, count) sorted by dict[1] = value the count value
+
+    return [
+        {'country' : country, 'population': population} 
+        for country, population in sortedpopulation[:topn]
+    ]
+print(most_populated_country('./datafiles/country_data.json', 3))
+
+
+import re
+def extract_emails(filename):
+    if not os.path.exists(filename):
+        return(f"Error: The file '{filename}' was not found.")
+
+    email_list = []
+
+    with open(filename, 'r') as f:
+        # same as readlines() Danger: Loads whole file into memory at once
+        for line in f:
+            if line.startswith('From '):
+                email = re.search(r'(\w+)+@[\w\.-]+', line)
+                # print(email.group())
+                if email:
+                    email_list.append(email.group())
+        return email_list
+print(extract_emails('./datafiles/email_exchanges_big.txt'))
+
+def find_most_common_words(filename, topn):
+    if not os.path.exists(filename):
+        return(f"Error: File at '{filename}' does not exist.")
+
+    words_dict = {}
+    with open(filename, 'r') as f:
+        for line in f:
+            words = line.strip().lower().split()
+            for word in words:
+                words_dict[word] = words_dict.get(word, 0) + 1
+
+    sorted_words = sorted(words_dict.items(), key = lambda x: x[1], reverse=True)
+
+    return sorted_words[:topn]
+print(find_most_common_words('./datafiles/sample.txt', 10))
+
+print(find_most_common_words('./datafiles/romeo_and_juliet.txt', 10))
+
+
+def clean_text(filepath: str):
+    with open(filepath, "r") as f:
+        rawtext = f.read().lower()
+    return re.findall(r'\b[a-z]+\b',rawtext) # find only words (all are lower alr)
+
+from datafiles.stop_words import stop_words as sw
+def remove_support(all_words):
+    return [word for word in all_words if word not in sw]
+
+# print(remove_support(clean_text('./datafiles/sample.txt')))
+
+def check_similarity(text1, text2):
+    words1 = set(remove_support(clean_text(text1)))
+    words2 = set(remove_support(clean_text(text2)))
+
+    intersect = words1.intersection(words2)
+    union = words1.union(words2)
+
+    #print(intersect) # only matching
+    #print('\n')
+    #print(union) # all words
+    return round(len(intersect)/len(union) , 2) if union else 0.0
+
+print(check_similarity('./datafiles/michelle_obama_speech.txt', './datafiles/melina_trump_speech.txt'))
+
+import csv
+def count_languages(filepath):
+    py_count = 0
+    js_count = 0
+    java_count = 0
+
+    with open(filepath, 'r') as f:
+        csv_reader = csv.reader(f)
+        for row in csv_reader:
+            line = " ".join(row).lower()
+
+            if "python" in line:
+                py_count += 1
+
+            if "javascript" in line:
+                js_count += 1
+
+            if "java" in line and "javascript" not in line:
+                java_count += 1
+    return f"Python count: {py_count}\nJavaScript count: {js_count}\nJava (not JS) count: {java_count}"
+print(count_languages("./datafiles/hacker_news.csv"))
