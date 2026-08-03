@@ -228,3 +228,51 @@ my_tuple = tuple(my_list)
     - |: Either or
         - r'apple|banana' means either apple or a banana
     - (): Capture and group
+
+### File Handling
+- If you do not close a text file in Python, you risk data loss, file corruption, resource leaks, and file locking issues!
+    - There is a new way of opening files using `with` - closes the files by itself.
+- Text file handling: 
+    -   Opened file has different reading methods: read(), readline, readlines.
+        - read(): read the whole text as string. If we want to limit the number of characters we want to read, we can limit it by passing int value to the read(number) method.
+        - readline(): read only the first line
+        - readlines(): read all the text line by line and returns a list of lines
+        - splitlines(): get all the lines as a list
+    - open('filename', mode) # mode(r, a, w, x, t,b)  could be to read, write, update
+        - "r" - Read - Default value. Opens a file for reading, it returns an error if the file does not exist
+        - "r+" - Read and Write mode.  Starts at the beginning, but leaves old text if the new text is shorter unless you clear it first
+        - "a" - Append - Opens a file for appending, creates the file if it does not exist
+        - "w" - Write - Opens a file for writing, creates the file if it does not exist. Erases all old content when opening, then writes new text from the start
+        - "x" - Create - Creates the specified file, returns an error if the file exists
+        - "t" - Text - Default value. Text mode
+        - "b" - Binary - Binary mode (e.g. images)
+        - Modes can be combined, e.g. "rb" (read binary), "a+" (append and read), "w+" (write and read)
+    - Writing methods:
+        - write(string): writes a single string to the file (does not add a newline automatically, add `\n` yourself)
+        - writelines(list): writes a list of strings to the file, one after another (no automatic newlines either)
+    - An opened file has to be closed with close() method, otherwise changes may not be saved and the file stays locked.
+    - `with` statement (context manager): preferred way to open files, since it closes the file automatically even if an error occurs.
+        - `with open('filename', 'r') as f: data = f.read()` -> no need to call f.close()
+    - seek(offset) / tell(): seek() moves the file pointer (cursor) to a byte position, tell() returns the current cursor position.
+    - Encoding: pass `encoding='utf-8'` to open() to avoid errors with special characters, especially on Windows.
+    - Checking if a file exists: `os.path.exists('filepath')` or `os.path.isfile('filepath')` (from the os module) before reading/deleting, to avoid errors.
+    - Handling missing files: opening a non-existent file in "r" mode raises `FileNotFoundError` - can wrap in try/except.
+    - Deleting files: using os module `os.remove('filepath')` - raises `FileNotFoundError` if the file doesn't exist, so check with os.path.exists() first or catch the exception.
+    - Deleting folders: `os.rmdir('folder')` for an empty folder, `shutil.rmtree('folder')` (from the shutil module) to delete a folder and everything inside it.
+- JSON Datafile handling: convert JSON to a dictionary
+    - Changing JSON to Dictionary: Import  and use `loads` method -> output dict type with data.
+    - Changing Dictionary to JSON: we use `dumps` method from the json module. (str type instead of dct)
+    - Saving as JSON File: For writing a json file, we use the json.dump() method, it can take dictionary, output file, ensure_ascii and indent.
+    - Reading a JSON File: `json.load(f)` reads directly from an open file object and returns a dict (no need to read() the text first).
+        - Note the naming pattern: `load`/`dump` work with file objects, `loads`/`dumps` (the "s" = string) work with strings already in memory.
+- CSV Datafile handling: CSV is a simple file format used to store tabular data, such as a spreadsheet or database. 
+    - `csv_reader = csv.reader(f, delimiter=',')` we use, reader method to read csv - each row comes back as a list of strings.
+    - `csv_writer = csv.writer(f)` writes rows to a csv file - `csv_writer.writerow(list)` for one row, `csv_writer.writerows(list_of_lists)` for many.
+    - `csv.DictReader(f)` reads each row as a dictionary, using the first row as the keys (column headers) by default.
+    - `csv.DictWriter(f, fieldnames=[...])` writes dictionaries as rows - call `.writeheader()` first to write the column names, then `.writerow(dict)`.
+    - When opening a csv file for writing, use `open('file.csv', 'w', newline='')` - the `newline=''` avoids extra blank lines being inserted on Windows.
+- XLSX Datafile handling: Excel spreadsheet format - unlike json/csv, it's not in the standard library, needs a package like `openpyxl` (`pip install openpyxl`) or `pandas`.
+    - Reading with openpyxl: `wb = openpyxl.load_workbook('file.xlsx')` loads the workbook, `wb.sheetnames` lists the sheets, `sheet = wb['Sheet1']` (or `wb.active` for the default sheet) selects one.
+    - Reading cells: `sheet['A1'].value` reads a single cell, `sheet.iter_rows(values_only=True)` loops through all rows as tuples of values.
+    - Writing with openpyxl: `wb = openpyxl.Workbook()` creates a new workbook, `sheet.append([...])` adds a row, `wb.save('file.xlsx')` saves it to disk.
+    - Reading/writing with pandas: `df = pandas.read_excel('file.xlsx')` reads a sheet straight into a DataFrame; `df.to_excel('file.xlsx', index=False)` writes one back out. Handy when the data needs analysis/manipulation rather than just storage.
