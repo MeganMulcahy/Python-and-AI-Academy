@@ -276,3 +276,50 @@ my_tuple = tuple(my_list)
     - Reading cells: `sheet['A1'].value` reads a single cell, `sheet.iter_rows(values_only=True)` loops through all rows as tuples of values.
     - Writing with openpyxl: `wb = openpyxl.Workbook()` creates a new workbook, `sheet.append([...])` adds a row, `wb.save('file.xlsx')` saves it to disk.
     - Reading/writing with pandas: `df = pandas.read_excel('file.xlsx')` reads a sheet straight into a DataFrame; `df.to_excel('file.xlsx', index=False)` writes one back out. Handy when the data needs analysis/manipulation rather than just storage.
+
+### PIP & Package Manager
+- `pip install`
+- `pip uninstall`
+- `pip list`: See the installed packages on our machine
+- `pip show [--verbose] packagename`: To show information about a package
+- `pip freeze`: Generate installed Python packages with their version and the output is suitable to use it in a requirements file. A requirements.txt file is a file that should contain all the installed Python packages in a Python project.
+- `pip install requests`: Read from a website using url or from an API. To open a network connection, we need a package called requests - it allows to open a network connection and to implement CRUD(create, read, update and delete) operations.
+    - get(): to open a network and fetch data from url - it returns a response object
+    - status_code: After we fetched data, we can check the status of the operation (success, error, etc)
+    - headers: To check the header types
+    - text: to extract the text from the fetched response object
+    - json: to extract json data
+- `__init__`: If we put init.py in a self made package/folder, python start recognizes it as a package. The init.py exposes specified resources from its modules to be imported to other python files. An empty init.py file makes all functions available when a package is imported. The init.py is essential for the folder to be recognized by Python as a package.
+- Common Packages:
+    - Database
+        - SQLAlchemy or SQLObject - Object oriented access to several different database systems
+    - Web Development
+        - Django - High-level web framework.
+        - Flask - micro framework for Python based on Werkzeug, Jinja 2. (It's BSD licensed)
+    - HTML Parser
+        - BeautifulSoup4 - HTML/XML parser designed for quick turnaround projects like screen-scraping, will accept bad markup.
+        - PyQuery - implements jQuery in Python; faster than BeautifulSoup, apparently.
+    - XML Processing
+        - ElementTree - The Element type is a simple but flexible container object, designed to store hierarchical data structures, such as simplified XML infosets, in memory. --Note: Python 2.5 and up has ElementTree in the Standard Library
+    - GUI
+        - PyQt - Bindings for the cross-platform Qt framework.
+        - TkInter - The traditional Python user interface toolkit.
+    - Data Analysis, Data Science and Machine learning
+        - Numpy: Numpy(numeric python) is known as one of the most popular machine learning library in Python.
+        - Pandas: is a data analysis, data science and a machine learning library in Python that provides data structures of high-level and a wide variety of tools for analysis.
+        - SciPy: SciPy is a machine learning library for application developers and engineers. SciPy library contains modules for optimization, linear algebra, integration, image processing, and statistics.
+        - Scikit-Learn: It is NumPy and SciPy. It is considered as one of the best libraries for working with complex data.
+        - TensorFlow: is a machine learning library built by Google.
+        - Keras: is considered as one of the coolest machine learning libraries in Python. It provides an easier mechanism to express neural networks. Keras also provides some of the best utilities for compiling models, processing data-sets, visualization of graphs, and much more.
+    - Network:
+        - requests: is a package which we can use to send requests to a server(GET, POST, DELETE, PUT)
+
+## Classes & Objects / OOP
+- Python itslef is an object oriented programming language. Everything in Python is an object, with its properties and methods. A number, string, list, dictionary, tuple, set etc. used in a program is an object of a corresponding built-in class. We create class to create an object. A class is like an object constructor, or a "blueprint" for creating objects. We instantiate a class to create an object. The class defines attributes and the behavior of the object, while the object, on the other hand, represents the class.
+- Constructor: Python has also a built-in init() constructor function. The init constructor function has self parameter which is a reference to the current instance of the class
+- Object methods: Objects can have methods. The methods are functions which belong to the object.
+- Object Default Methods: Sometimes, you may want to have default values for your object methods. If we give default values for the parameters in the constructor, we can avoid errors when we call or instantiate our class without parameters.
+- Inheritence: reuse parent class code. Inheritance allows us to define a class that inherits all the methods and properties from parent class. The parent class or super or base class is the class which gives all the methods and properties. Child class is the class that inherits from another or parent class. 
+
+### Web Scraping
+- To scrape websites you use requests, beautifoulSoup4 and a website. Basic understanding of HTML tags and CSS selectors is needed.
